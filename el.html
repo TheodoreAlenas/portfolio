@@ -1,0 +1,518 @@
+<!DOCTYPE HTML>
+<html lang="el">
+<head>
+<title>Θοδωρής Δημακόπουλος</title>
+<meta name="description" content="Βιογραφικό και χαρτοφυλάκιο για εργοδότες">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="favicon.ico">
+<script>
+function initColorScheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersContr = window.matchMedia('(prefers-contrast: more)').matches;
+    const preferredNow = prefersDark ? (prefersContr ? "contr" : "dark") : "light";
+
+    const lastPreferred = localStorage.getItem("portfolioColorSchemeLastPreferred");
+    const last = localStorage.getItem("portfolioColorSchemeLastUsed")
+    localStorage.setItem("portfolioColorSchemeLastPreferred", preferredNow);
+
+    if (lastPreferred === preferredNow && last)
+        setColorScheme(last);
+    else
+        setColorScheme(preferredNow);
+}
+
+initColorScheme();
+
+function setColorScheme(value) {
+    const binary = value === "contr" ? "dark" : value;
+    document.querySelector("html").style.colorScheme = binary;
+    document.querySelector("html").setAttribute("data-sch", value);
+    localStorage.setItem("portfolioColorSchemeLastUsed", value);
+}
+</script>
+<style>
+:root { color-scheme: light dark; }
+
+[data-sch=light] .bg { background-color: #fff; }
+[data-sch=light] a { color: #025; }
+[data-sch=light] a:visited { color: #404; }
+[data-sch=light] .fs1 { color: #000; }
+[data-sch=light] .fs2 { color: #111; }
+[data-sch=light] .fs3 { color: #222; }
+[data-sch=light] .fs4 { color: #333; }
+[data-sch=light] .fs5 { color: #444; }
+
+[data-sch=contr] .bg { background-color: #000; }
+
+.bg { background-color: #333; }
+a { color: #bcf; }
+a:visited { color: #faf; }
+.fs1 { color: #eee; }
+.fs2 { color: #ddd; }
+.fs3 { color: #ccc; }
+.fs4 { color: #b8b4b0; }
+.fs5 { color: #ba9; }
+
+[data-sch=light] .code1 b { color: #863; }
+[data-sch=light] .code1 {
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    color: #353;
+}
+
+.code1 b { color: #a85; }
+.code1 {
+    background-color: #282828;
+    border: 1px solid #444;
+    color: #8a8;
+}
+
+[data-sch=contr] .code1 b { color: #fc8; }
+[data-sch=contr] .code1 {
+    background-color: #080808;
+    border: 1px solid #777;
+    color: #fff;
+}
+
+body { font-family: system-ui,sans-serif; margin: 0; }
+a { text-underline-offset: 0.3em; }
+pre { overflow: scroll; padding: 1em; border-radius: 5px; }
+pre > code { font-size: 0.4cm; }
+code { font-family: source-code-pro-regular,monospace; }
+pre b { font-family: source-code-pro-semibold,monospace; }
+@font-face {
+    font-family: source-code-pro-regular;
+    src: url(r/source-code-pro-regular.otf);
+}
+@font-face {
+    font-family: source-code-pro-semibold;
+    src: url(r/source-code-pro-semibold.otf);
+}
+.ls1 { display: flex; flex-wrap: wrap; padding: 0; }
+.ls1 > li { list-style: none; margin: 0 1.6em 0 0; }
+.ls1 > li > a { display: inline-block; padding: 0.5em 0; }
+.ls2 { display: flex; flex-wrap: wrap; padding: 0; }
+.ls2 > li { list-style: none; }
+.ls2 > li > a { display: inline-block; padding: 0.2em 1.6em; }
+fieldset { border: none; padding: 0; margin: 0; }
+fieldset legend { float: left; }
+fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
+.column { margin: 0 auto; max-width: 35cm; padding: 0 1rem; }
+.fs1 { font-size: 12pt; line-height: 1.4em; }
+.fs2 { font-size: 14pt; line-height: 1.4em; }
+.fs3 { font-size: 18pt; line-height: 1.2em; }
+.fs4 { font-size: 24pt; line-height: 1.1em; }
+.fs5 { font-size: 40pt; line-height: 1em; }
+.fwn { font-weight: normal; }
+.icon { width: 1.4em; height: 1.4em; }
+.picstretch { display: block; text-align: center; }
+.flex { display: flex; }
+.w100p { width: min(12cm, 100%); }
+@media (min-width: 20cm) {
+    .wide-flex { display: flex; }
+    .wide-fix-size { width: min(512px, 40vw); }
+}
+.flexac { display: flex; align-items: center; }
+.flexjc { display: flex; justify-content: center; }
+.flexw { flex-wrap: wrap; }
+.spc { justify-content: space-between; }
+.m20 { margin: 0.6rem 0; }
+.m30 { margin: 1rem 0; }
+.ml2 { margin-left: 0.2em; }
+.ml3 { margin-left: 0.5em; }
+.ml4 { margin-left: 1em; }
+.ml5 { margin-left: 4em; }
+.mt2 { margin-top: 1cm; }
+.mt3 { margin-top: 2cm; }
+.mt4 { margin-top: 3cm; }
+.mt5 { margin-top: 6cm; }
+.p20 { padding: 1rem 0; }
+.p30 { padding: 2rem 0; }
+.pl3 { padding-left: 1em; }
+.pl4 { padding-left: 2em; }
+.pt2 { padding-top: 1rem; }
+.gap3 { column-gap: 1cm; }
+.gap4 { column-gap: 2cm; }
+.cards1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10cm), 1fr));
+}
+.bdb2 { border-bottom: 1px solid; padding-bottom: 0.2em; }
+</style>
+</head>
+<body class="bg fs2">
+<header class="column flexac flexw gap4 spc pt2">
+<h1 class="fs3 fwn"
+>Χαρτοφυλάκιο</h1>
+<fieldset>
+<legend class="flexac">
+<img src="r/icon-theme.svg" class="icon" alt="" width=512 height=512>
+<span class="ml3">
+Θέμα
+</span>
+</legend>
+<label for="theme-light" class="pl4 p30">
+<input type="radio" name="theme" value="light" id="theme-light" />
+Ανοιχτό
+</label>
+<label for="theme-dark" class="ml2 p30">
+<input type="radio" name="theme" value="dark" id="theme-dark" />
+Σκούρο
+</label>
+<label for="theme-contr" class="ml2 p30">
+<input type="radio" name="theme" value="contr" id="theme-contr" />
+Αντίθεση
+</label>
+<script>
+  let q = "input[type=radio][name=theme]"
+  const themeRadios = document.querySelectorAll(q);
+  const sch = document.querySelector("html").getAttribute("data-sch");
+  for (let r of themeRadios) {
+      const v = r.getAttribute("value")
+      if (v == sch) r.checked = true;
+      r.onchange = function(_) {setColorScheme(v)}
+  }
+</script>
+</fieldset>
+<a class="p20" href="index.html">English</a>
+</header>
+<main class="column">
+<div class="wide-flex gap4">
+<section>
+<h2 class="fs5 fwn m20 mt4">
+<!-- στα Αγγλικά εδώ λέει I am χωρίς strong -->
+<strong>Θοδωρής Δημακόπουλος</strong>
+</h2>
+<p class="fs4 m20">
+Φοιτητής πληροφορικής, έχω κλίση στα Linux
+και προτιμώ την άμεση επικοινωνία.
+</p>
+<p class="m20">
+Για πτυχίο θα χρειαστώ πρακτική άσκηση,
+κατά προτίμηση μερικής απασχόλησης έξι μηνών
+ή στην ανάγκη ολικής απασχόλησης τριών μηνών.
+</p>
+</section>
+<picture class="picstretch mt3">
+<source
+srcset="r/face-512x512-lossless-1-compr-4.webp"
+type="image/webp">
+<img
+class="w100p wide-fix-size"
+src="r/face-512x512.png"
+alt="Πρόσωπο άντρα, πράσινα μάτια, μακρύ μαλλί">
+</picture>
+</div>
+<ul class="fs2 ls1">
+
+<li><a href="https://github.com/TheodoreAlenas/"
+>GitHub</a></li>
+
+<li><a href="mailto:dimakopt732@gmail.com"
+>Gmail</a></li>
+
+<li><a href="https://www.linkedin.com/in/theodoros-dimakopoulos-726ba1289/"
+>LinkedIn</a></li>
+
+</ul>
+<h2 class="mt4 fs4 fwn"
+>Γενικά</h2>
+<div class="cards1 gap3">
+<section>
+<h3 class="fs3 fwn">Web development</h3>
+<p>
+Έκανα τρίμηνη πρακτική πλήρους απασχόλησης
+<a href="https://helvia.ai/">
+στη Helvia
+</a>
+τον Ιούλιο του 2024.
+Τον πρώτο μήνα μάθαινα DevOps/operations και τους δύο επόμενους
+εξοικειώθηκα με τα εργαλεία NextJS, MongoDB και FastAPI της Python
+<a href="https://theodoros-d-alenas.site/key-mouth/"
+>φτιάχνοντας την εφαρμογή Key Mouth</a>.
+Το Key Mouth είναι εφαρμογή ανταλλαγής μηνυμάτων που δείνχνει τα
+πλήκτρα που πατάει ο άλλος χρήστης σε πραγματικό χρόνο.
+Το δύσκολο ήταν ότι δεν υπήρχε σημείο αναφοράς.
+</p>
+<p>
+Πριν την πρακτική στη Helvia, σε μαθήματα που αφορούσαν web development
+στη σχολή, δοκίμασα PostGres SQL, MySQL και MongoDB,
+είδα κώδικα άλλων σε VueJS και Jango της Python και
+προσπάθησα να μάθω Spring σε Java και Kotlin πάνω από μία φορά.
+Επίσης πειραματίστηκα στον ελεύθερό μου χρόνο με μερικά Docker containers
+από περιέργεια και δοκίμασα λίγο Jest και Typescript.
+</p>
+</section>
+<section>
+<h3 class="fs3 fwn">Linux</h3>
+<p>
+Θυμάμαι το 2020 να δοκίμασα WSL πρώτη φορά, έπειτα χρησιμοποίησα
+Linux Mint και έπειτα, επειδή δυσκολευόμουν να ρυθμίσω κάποια εργαλεία,
+εγκατέστησα Arch Linux με το χειροκίνητο τρόπο.
+<a href="https://www.youtube.com/@DistroTube"
+>Με ενέπνευσε πολύ το κανάλι DistroTube</a>
+στο YouTube
+αν και το κανάλι έχει ένα τρόπο σκέψης που πλέον δεν ακολουθώ.
+</p>
+<p>
+Χρησιμοποιούσα πολύ το shell και έμαθα αρκετά το υποσύνολο POSIX,
+και για scripts και για γραμμή εντολών.
+Κάποια στιγμή νοίκιασα έναν Alpine Linux server
+για backups και για να σερβίρω αυτό τον ιστοχώρο με NginX και certbot.
+Σε γενικές γραμμές πάει καλά, αν και δε θα έλεγα ότι ξέρω servers.
+Άλλοτε πέφτει το σάιτ,
+άλλοτε υπάρχει θέμα με τα πιστοποιητικά,
+αλλά υπάρχει πρόοδος.
+</p>
+</section>
+<section>
+<h3 class="fs3 fwn">Κοινωνικές εμπειρίες</h3>
+<p>
+Μέχρι το 2021 περίπου ήμουν στερεοτυπικός προγραμματιστής,
+σήμερα έχω κάποιους φίλους.
+</p>
+<p>
+Σε ομαδικά πρότζεκτ στη σχολή
+έδωσα έμφαση στα UX user test,
+έδειξα σε συνεργάτες πώς γίνονται τα αυτόματα τεστ
+και σε δύο εργασίες χρησιμοποίησα πρωτότυπα για ιδέες.
+Βέβαια, δεν πήγαν καλά αυτά.
+Η αγαπημένη μου ομαδική εργασία ήταν μια σχετικά απλή έρευνα
+γύρω από τη γλώσσα Rust και το μεταγλωττιστή της,
+ήμασταν 4 φίλοι και συνεργαζόμασταν από κοντά
+για δύο μήνες, 4 ώρες τη μέρα τουλάχιστον 4 μέρες την εβδομάδα.
+</p>
+</section>
+</div>
+
+<h3 class="fs3 fwn">
+<a href="r/cv-2024-10-10.pdf"
+>CV σε PDF</a>
+</h3>
+<p>
+Το CV δίνει πιο πολλή έμφαση σε μετρήσιμες έννοιες.
+</p>
+
+
+<h2 class="fs5 fwn mt4">Πρότζεκτ με μεγαλύτερη επηροή</h2>
+<p>
+Το πρότζεκτ που με επηρέασε περισσότερο με διαφορά είναι
+<a href="https://theodoros-d-alenas.site/key-mouth/"
+>η εφαρμογή Key Mouth</a>,
+δε θα αναφέρω όμως περισσότερα επειδή έχω αναφέρει όλες τις
+<a href="https://github.com/TheodoreAlenas/key-mouth"
+>λεπτομέρειες στο GitHub</a>.
+Κατά τα άλλα, ό,τι έμαθα το έμαθα κυρίως από κώδικα που γράφτηκε δεύτερη φορά
+ή που απλά πετάχτηκε, οπότε σε αυτά θα ήθελα να δώσω έμφαση εδώ.
+</p>
+<h3 class="fs4 fwn bdb2 mt3">Οι 3 εκδόσεις αυτού του ιστοχώρου</h3>
+<p>
+Υπήρχε ένα μενού στην κορυφή όπως σε άλλα σάιτ.
+</p>
+<h4 class="fs3 fwn">Συναρμολογούμενες συναρτήσεις</h4>
+<p>
+PHP συναρτήσεις που επιστρέφουν strings HTML κώδικα.
+<a href="old-versions/13-before-abandoning/en/index.html"
+>Το σερβίρω</a> ακόμα και υπάρχει και στο
+<a href="https://github.com/TheodoreAlenas/personal-website-1/"
+>GitHub</a>.
+</p>
+<pre class="code1"><code>include_once(&quot;common/wraps/<b>typical-layouts</b>.php&quot;);
+[...]
+function <b>get_biography_html</b>(string $language) &lbrace;
+  return <b>get_typical_layout</b>&lpar;
+    $language,</code></pre>
+
+<h4 class="fs3 fwn">Λιγότερα επίπεδα αφαίρεσης</h4>
+<p>
+Ο κώδικας μοιάζει σα συντομεύσεις που παραπέμπουν σε περισσότερο κώδικα.
+Σερβίρω μια
+<a href="old-versions/20-hamburger-menu/en/index.html"
+>παλιότερη</a> και μια
+<a href="old-versions/21-blue-mountains-many-themes/en/index.html"
+>επόμενη</a> έκδοση
+και υπάρχει ο κώδικας στο
+<a href="https://github.com/TheodoreAlenas/personal-website-2/"
+>GitHub</a>.
+</p>
+<pre class="code1"><code>&lt;?php $STR_XML = <b>simplexml_load_file</b>(&quot;biography/bio-high-school.xml&quot;) ?&gt;
+&lt;h2&gt;&lt;?php $b(&quot;<b>title</b>&quot;) ?&gt;&lt;/h2&gt;
+&lt;p&gt;
+    &lt;?php $b(&quot;<b>graduated</b>&quot;) ?&gt;
+    &lt;a href=&quot;http://2lyk-amaliad.ilei.sch.gr/wordpress17/&quot;
+    &gt;&lt;?php $b(&quot;<b>high_school</b>&quot;) ?&gt;&lt;/a&gt;</code></pre>
+<h4 class="fs3 fwn">Λιγότερο κείμενο</h4>
+<p>
+<a href="https://www.kevinpowell.co/">Το σάιτ του Kevin Powell</a>
+μου έδωσε την ιδέα να γράψω όσο λιγότερο κείμενο γίνεται
+ώστε να μπορώ να γράψω την HTML με το χέρι.
+</p>
+<pre class="code1"><code><b>&lt;h4 class=&quot;fs3 fwn&quot;&gt;</b>Fewest layers possible<b>&lt;/h4&gt;</b>
+<b>&lt;p&gt;</b>
+Abstractions got replaced with abbreviations.
+I serve an
+<b>&lt;a href=&quot;old-versions/20-hamburger-menu/en/index.html&quot;
+&gt;</b>older<b>&lt;/a&gt;</b> and a</code></pre>
+<h4 class="fs3 fwn">Τελικά</h4>
+<p>
+Μοιάζει σα να μειώθηκαν οι απαιτήσεις και να έγινε πιο πρόχειρος ο κώδικας.
+Από μια άποψη όμως οι απαιτήσεις ανέβηκαν.
+Πλέον πρέπει η σελίδα να είναι λακωνική,
+πλέον αναμένεται ο browser να μπορεί να αναφέρει τον πηγαίο κώδικα
+και αν δοκιμάσεις να γράψεις HTML χωρίς indentation δε ξεκολλάς.
+</p>
+<h3 class="fs4 fwn bdb2 mt3">Οι τέσσερις εκδόσεις συνδυασμών πλήκτρων</h4>
+<p>
+Το λειτουργικό μου σύστημα είναι λίγο στρυφνό και βασίζεται σε
+συνδυασμούς πλήκτρων γιατί δεν έχει πολλά μενού και μπάρες.
+Προφανώς θα χρησιμοποιούσα το πρόγραμμα
+<a href="https://github.com/baskerville/sxhkd"><code>sxhkd</code></a>,
+αλλά ήθελα και ένα αναδυόμενο παράθυρο με συμβουλές σαν το
+<a href="https://github.com/folke/which-key.nvim"><code>which-key</code></a>
+που δε γίνεται.
+</p>
+<h4 class="fs3 fwn">Εισαγωγή γράμματος</h4>
+<p>
+3 bash script και η παρακάτω γλώσσα.
+Εμφανίζεται ένα τερματικό, δείχνει μια λίστα από πλήκτρα και περιμένει για είσοδο.
+</p>
+<pre class="code1"><code><b>s *screenshot</b>   sel=$(slop -f &quot;-i %i -g %g&quot;); shotgun $sel /tmp/screenshot.png
+<b>S *scrsh-fulls</b>  sleep 0; shotgun /tmp/screenshot.png</code></pre>
+<p>
+Το τερματικό ανακατευόταν με τα υπόλοιπα παράθυρα
+και οι συνδυασμοί πλήκτρων για να αλλάξεις παράθυρο χάλαγαν.
+</p>
+<h4 class="fs3 fwn">Ένα προς ένα εντολές Linux</h4>
+<p>
+Μία νέα απαίτηση ήταν ότι το
+Win + e, Win + Alt + r
+πρέπει να μπορεί να γίνει και από τη γραμμή εντολών πατώντας
+<code>al e +r</code>.
+</p>
+<p>
+Επίσης, το Win + m, Win + v
+τρέχει την εντολή <code>pacmd set-sink-volume 0 ...</code>
+αφού ρωτήσει το χρήστη πώς να συμπληρώσει το κενό.
+Πλέον το ανέβασα και στο
+<a href="https://github.com/TheodoreAlenas/hotkey-system-2-alk"
+>GitHub</a>.
+</p>
+<pre class="code1"><code><b>video | V)</b> mpv_shut_up $(find ~/img/go -name '*.mp4' | shuf) <b>;;</b>
+<b>screenshot | s)</b> sxiv /tmp/screenshot.png <b>;;</b></code></pre>
+<p>
+Ρυθμίζεται λίγο δύσκολα και δεν υπήρχε καλός τρόπος να πάρεις μια λίστα
+από πλήκτρα.
+Φυσικά δεν το χρησιμοποιούσα από τη γραμμή εντολών σχεδόν ποτέ.
+</p>
+<h4 class="fs3 fwn">Πρόγραμμα συνδυασμού κομματιών κώδικα</h4>
+<p>
+Ανέβηκαν οι απαιτήσεις
+αλλά χωρίς λόγο.
+Είναι στο
+<a href="https://github.com/TheodoreAlenas/alsnip/blob/main/example-config/reset.sh"
+>GitHub</a>.
+</p>
+<p>
+Δίνεται μια λίστα από κομμάτια κειμένου ή κώδικα,
+κάποια εκ των οποίων είναι εντολές Linux,
+κάποιες εκ των οποίων έχουν συνδυασμούς πλήκτρων.
+Κάποιες ζητούν και συμπλήρωση.
+Κατά τη συμπλήρωση το πρόγραμμα δίνει προτάσεις
+και στο τέλος μια μπάρα γράφει ποια εντολή εκτελέστηκε.
+Κάθε κομμάτι κειμένου έχει περιγραφή.
+Τα κομμάτια εκτός από εντολές μπορεί να είναι shell aliases,
+ASCII art για αντιγραφή στο πρόχειρο,
+ένα C for loop που κάποια κομμάτια του λείπουν και θέλουν συμπλήρωση κλπ.
+Στην οθόνη εμφανιζόταν μία λίστα που έμοιαζε κάπως έτσι:
+</p>
+<pre class="code1"><code>vol1  .m1 /auto   | pacmd set-sink-volume 0 6000
+vol0  .m0 /auto   | pacmd set-sink-volume 0 0
+wm_t7 .!7 /auto   | bspc node --to-desktop temporary --follow
+wm_b7 .^7 /auto   | bspc node @temporary:/ --to-desktop focused</code></pre>
+<p>
+Ρυθμιζόταν με shell scripts που παράγουν άλλα shell scripts.
+Άρχισε να χρειάζεται caching κάποια στιγμή και είπα να δοκιμάσω άλλη προσέγγιση.
+</p>
+<h4 class="fs3 fwn">Αυτόνομο shell script</h4>
+<pre class="code1"><code><b>about_logging</b>() { <b>tail /tmp/scmd.sh</b>; echo &quot;Should have lines that look like: <b>func() { echo hi; } #>>hi</b>&quot;; }
+<b>about_why</b>() { echo &quot;<b>For the syntax highlighting and to reduce bugs</b>. I've made many abstract hotkey systems.&quot;; }
+  [...]
+<b>volume_set_8</b>() { pacmd set-sink-volume 0 48000; } <b>#m8</b>
+<b>volume_set_9</b>() { pacmd set-sink-volume 0 54000; } <b>#m9</b>
+<b>volume_set_custom</b>() { pacmd set-sink-volume 0 &quot;$(:|dmenu)&quot;; }
+  [...]
+<b>scmd_run</b>() &lbrace; c=&quot;$(dmenu &lt; &quot;$(<b>this_file</b>)&quot; | cut -d&#039;(&#039; -f1)&quot;; test &quot;$c&quot; &amp;&amp; <b>scmd_with_bar_status</b> &quot;$c&quot;; &rbrace; <b>#x</b>
+  [...]
+<b>this_file</b>() { echo ~/.config/scmd.sh; }</code></pre>
+<p>
+Αυτό το αρχείο χρωματίζεται από τον editor,
+λειτουργεί σα λίστα, έχει ένα υπερσύνολο των εντολών που αντιστοιχούν σε πλήκτρα,
+μια μπάρα αναφέρει τι εκτελέστηκε,
+χρησιμοποιείται και από τη γραμμή εντολών
+και για πρώτη φορά ήταν πρακτικό να φτιαχτεί logger.
+</p>
+<p>
+Είναι στο
+<a href="https://github.com/TheodoreAlenas/dotfiles/blob/main/scmd.sh"
+>GitHub</a>
+ανάμεσα στα αρχεία ρυθμίσεών μου.
+</p>
+<h4 class="fs3 fwn">Συμπέρασμα</h4>
+<p>
+Αυτοί οι πειραματισμοί έκαναν τον κώδικα να μοιάζει με φάσεις ζωής.
+Στην αρχή ήταν συμπαθητικός και οικείος,
+έπειτα έγινε λίγο υπερβολικός και στο τέλος
+έγινε βαρετός και περίεργος, σχεδόν κυνικός.
+Μοιάζει λίγο με την ιστοσελίδα που έγινε ένα αρχείο με απλή δομή.
+Ίσως σε μεγάλη κλίμακα να μη μπορεί ένα πρότζεκτ να περάσει από
+τέτοιες φάσεις αλλά έχει ενδιαφέρον αυτό το φαινόμενο.
+</p>
+<h3 class="fs4 fwn bdb2 mt3">Άλλοι πειραματισμοί</h4>
+<p>
+Είχε αλλάξει πολλές φορές επίσης η δομή των φακέλων στο λάπτοπ μου
+και έπρεπε να αλλάζω αντίστοιχα το backup στον server,
+προσπαθούσα για ένα μεγάλο διάστημα να ομαδοποιήσω κάποιες εικόνες
+και χρησιμοποίησα αυτοσχέδια Python GUIs μεταξύ άλλων,
+προσπαθούσα για ένα διάστημα να διακοσμίσω το λειτουργικό μου σύστημα,
+προσπάθησα να κάνω &quot;πιο καθαρό&quot; τον κώδικα του
+<a href="https://tools.suckless.org/dmenu/"><code>dmenu</code></a>
+και χρειάστηκε να αποδεχτώ ότι απλά τον έκανα χειρότερο και, τέλος,
+ξανάγραψα ένα
+<a href="https://github.com/TheodoreAlenas/"
+>αναδυόμενο ρολόι</a>
+από Python σε C και έχασε σε εμφάνιση.
+</p>
+<h3 class="fs4 fwn mt3">Καλή συνέχεια!</h3>
+<p>
+Μη διστάσετε να μου γράψετε για ο,τιδήποτε.
+</p>
+<p class="mt5" style="text-align: center">
+<a href="mailto:dimakopt732@gmail.com"
+>Gmail</a>: dimakopt732@gmail.com
+</p>
+</main>
+</body>
+</html>
+<!--
+    Copyright (c) 2024 Dimakopoulos Theodoros <dimakopt732@gmail.com>
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+-->

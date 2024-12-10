@@ -1,0 +1,516 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Theodoros Dimakopoulos</title>
+<meta name="description" content="Biography and portfolio overview, for employers">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="favicon.ico">
+<script>
+function initColorScheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersContr = window.matchMedia('(prefers-contrast: more)').matches;
+    const preferredNow = prefersDark ? (prefersContr ? "contr" : "dark") : "light";
+
+    const lastPreferred = localStorage.getItem("portfolioColorSchemeLastPreferred");
+    const last = localStorage.getItem("portfolioColorSchemeLastUsed")
+    localStorage.setItem("portfolioColorSchemeLastPreferred", preferredNow);
+
+    if (lastPreferred === preferredNow && last)
+        setColorScheme(last);
+    else
+        setColorScheme(preferredNow);
+}
+
+initColorScheme();
+
+function setColorScheme(value) {
+    const binary = value === "contr" ? "dark" : value;
+    document.querySelector("html").style.colorScheme = binary;
+    document.querySelector("html").setAttribute("data-sch", value);
+    localStorage.setItem("portfolioColorSchemeLastUsed", value);
+}
+</script>
+<style>
+:root { color-scheme: light dark; }
+
+[data-sch=light] .bg { background-color: #fff; }
+[data-sch=light] a { color: #025; }
+[data-sch=light] a:visited { color: #404; }
+[data-sch=light] .fs1 { color: #000; }
+[data-sch=light] .fs2 { color: #111; }
+[data-sch=light] .fs3 { color: #222; }
+[data-sch=light] .fs4 { color: #333; }
+[data-sch=light] .fs5 { color: #444; }
+
+[data-sch=contr] .bg { background-color: #000; }
+
+.bg { background-color: #333; }
+a { color: #bcf; }
+a:visited { color: #faf; }
+.fs1 { color: #eee; }
+.fs2 { color: #ddd; }
+.fs3 { color: #ccc; }
+.fs4 { color: #b8b4b0; }
+.fs5 { color: #ba9; }
+
+[data-sch=light] .code1 b { color: #863; }
+[data-sch=light] .code1 {
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    color: #353;
+}
+
+.code1 b { color: #a85; }
+.code1 {
+    background-color: #282828;
+    border: 1px solid #444;
+    color: #8a8;
+}
+
+[data-sch=contr] .code1 b { color: #fc8; }
+[data-sch=contr] .code1 {
+    background-color: #080808;
+    border: 1px solid #777;
+    color: #fff;
+}
+
+body { font-family: system-ui,sans-serif; margin: 0; }
+a { text-underline-offset: 0.3em; }
+pre { overflow: scroll; padding: 1em; border-radius: 5px; }
+pre > code { font-size: 0.4cm; }
+code { font-family: source-code-pro-regular,monospace; }
+pre b { font-family: source-code-pro-semibold,monospace; }
+@font-face {
+    font-family: source-code-pro-regular;
+    src: url(r/source-code-pro-regular.otf);
+}
+@font-face {
+    font-family: source-code-pro-semibold;
+    src: url(r/source-code-pro-semibold.otf);
+}
+.ls1 { display: flex; flex-wrap: wrap; padding: 0; }
+.ls1 > li { list-style: none; margin: 0 1.6em 0 0; }
+.ls1 > li > a { display: inline-block; padding: 0.5em 0; }
+.ls2 { display: flex; flex-wrap: wrap; padding: 0; }
+.ls2 > li { list-style: none; }
+.ls2 > li > a { display: inline-block; padding: 0.2em 1.6em; }
+fieldset { border: none; padding: 0; margin: 0; }
+fieldset legend { float: left; }
+fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
+.column { margin: 0 auto; max-width: 35cm; padding: 0 1rem; }
+.fs1 { font-size: 12pt; line-height: 1.4em; }
+.fs2 { font-size: 14pt; line-height: 1.4em; }
+.fs3 { font-size: 18pt; line-height: 1.2em; }
+.fs4 { font-size: 24pt; line-height: 1.1em; }
+.fs5 { font-size: 40pt; line-height: 1em; }
+.fwn { font-weight: normal; }
+.icon { width: 1.4em; height: 1.4em; }
+.picstretch { display: block; text-align: center; }
+.flex { display: flex; }
+.w100p { width: min(12cm, 100%); }
+@media (min-width: 20cm) {
+    .wide-flex { display: flex; }
+    .wide-fix-size { width: min(512px, 40vw); }
+}
+.flexac { display: flex; align-items: center; }
+.flexjc { display: flex; justify-content: center; }
+.flexw { flex-wrap: wrap; }
+.spc { justify-content: space-between; }
+.m20 { margin: 0.6rem 0; }
+.m30 { margin: 1rem 0; }
+.ml2 { margin-left: 0.2em; }
+.ml3 { margin-left: 0.5em; }
+.ml4 { margin-left: 1em; }
+.ml5 { margin-left: 4em; }
+.mt2 { margin-top: 1cm; }
+.mt3 { margin-top: 2cm; }
+.mt4 { margin-top: 3cm; }
+.mt5 { margin-top: 6cm; }
+.p20 { padding: 1rem 0; }
+.p30 { padding: 2rem 0; }
+.pl3 { padding-left: 1em; }
+.pl4 { padding-left: 2em; }
+.pt2 { padding-top: 1rem; }
+.gap3 { column-gap: 1cm; }
+.gap4 { column-gap: 2cm; }
+.cards1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10cm), 1fr));
+}
+.bdb2 { border-bottom: 1px solid; padding-bottom: 0.2em; }
+</style>
+</head>
+<body class="bg fs2">
+<header class="column flexac flexw gap4 spc pt2">
+<h1 class="fs3 fwn"
+>Portfolio</h1>
+<fieldset>
+<legend class="flexac">
+<img src="r/icon-theme.svg" class="icon" alt="" width=512 height=512>
+<span class="ml3">
+Theme
+</span>
+</legend>
+<label for="theme-light" class="pl4 p30">
+<input type="radio" name="theme" value="light" id="theme-light" />
+Light
+</label>
+<label for="theme-dark" class="ml2 p30">
+<input type="radio" name="theme" value="dark" id="theme-dark" />
+Dark
+</label>
+<label for="theme-contr" class="ml2 p30">
+<input type="radio" name="theme" value="contr" id="theme-contr" />
+Contrast
+</label>
+<script>
+  let q = "input[type=radio][name=theme]"
+  const themeRadios = document.querySelectorAll(q);
+  const sch = document.querySelector("html").getAttribute("data-sch");
+  for (let r of themeRadios) {
+      const v = r.getAttribute("value")
+      if (v == sch) r.checked = true;
+      r.onchange = function(_) {setColorScheme(v)}
+  }
+</script>
+</fieldset>
+<a class="p20" href="el.html">Greek</a>
+</header>
+<main class="column">
+<div class="wide-flex gap4">
+<section>
+<h2 class="fs5 fwn m20 mt4">
+I'm
+<strong>Theodore D.</strong>
+</h2>
+<p class="fs4 m20">
+Undergraduate programmer with a focus on
+Linux and face to face interactions.
+</p>
+<p class="m20">
+I'm looking for a 6 month part time internship,
+or maybe a 3 month full time one,
+so I can get my degree.
+</p>
+</section>
+<picture class="picstretch mt3">
+<source
+srcset="r/face-512x512-lossless-1-compr-4.webp"
+type="image/webp">
+<img
+class="w100p wide-fix-size"
+src="r/face-512x512.png"
+alt="light brown man with long slightly curly hair">
+</picture>
+</div>
+<ul class="fs2 ls1">
+
+<li><a href="https://github.com/TheodoreAlenas/"
+>GitHub</a></li>
+
+<li><a href="mailto:dimakopt732@gmail.com"
+>Gmail</a></li>
+
+<li><a href="https://www.linkedin.com/in/theodoros-dimakopoulos-726ba1289/"
+>LinkedIn</a></li>
+
+</ul>
+<h2 class="mt4 fs4 fwn"
+>About me</h2>
+<div class="cards1 gap3">
+<section>
+<h3 class="fs3 fwn">Web development</h3>
+<p>
+In July 2024 I interned full time
+<a href="https://helvia.ai/">
+at Helvia</a>,
+one month on DevOps/operations and for two months
+I learned NextJS, MongoDB and Python's FastAPI by
+<a href="https://theodoros-d-alenas.site/key-mouth/"
+>making Key Mouth</a>.
+It's a chat app that shows each key instead of messages.
+It was hard mainly because there's no point of reference to hold onto.
+</p>
+<p>
+Before joining Helvia, we had cources related to web development and
+I tried PostGres SQL, MySQL and MongoDB,
+I read some code in VueJS and Python's Jango and
+I tried learning Spring in Java and Kotlin a few times.
+I entered a few Docker containers in my free time to look around
+and I played around with Jest and Typescript.
+</p>
+</section>
+<section>
+<h3 class="fs3 fwn">Linux</h3>
+<p>
+I tried WSL in 2020, I believe,
+then I went to Linux Mint and then,
+because I couldn't figure out how to use minimal tools on Mint,
+I installed Arch Linux with the manual installation.
+I was 
+<a href="https://www.youtube.com/@DistroTube"
+>motivated mostly by the DistroTube channel</a>
+on YouTube
+but I'm not into that mindset anymore.
+</p>
+<p>
+I used the shell a lot and eventually I got good at
+the POSIX subset, both for scripts and on the command line interactively.
+One day I rented an Alpine Linux server
+for backups and to use it to serve this site with NginX and certbot.
+It's alright, though I wouldn't say I'm good at serving sites.
+There's downtime sometimes and
+the certificates are a little off,
+but there's been progress.
+</p>
+</section>
+<section>
+<h3 class="fs3 fwn">Social experiences</h3>
+<p>
+I was a stereotypical programmer up to about 2021,
+today I do have a few friends.
+</p>
+<p>
+In University projects
+I gave emphasis on UX user tests,
+I showed some teammates how we could do automated tests
+and in two projects I demonstrated some draft prototypes.
+None of this went well though and that's a topic that
+I can talk about all day.
+My favorite project was a simple research on the Rust compiler
+with 3 firends where we were face to face
+2 months, 4 hours a day, 4 days a week at least.
+</p>
+</section>
+</div>
+
+<h3 class="fs3 fwn">
+<a href="r/cv-2024-10-10.pdf"
+>CV as PDF</a>
+</h3>
+<p>
+The CV complements this site.
+It emphasizes the parts that are more measurable.
+</p>
+
+
+<h2 class="fs5 fwn mt4">Most educational projects</h2>
+<p>
+The project that taught me the most, by far, is
+<a href="https://theodoros-d-alenas.site/key-mouth/"
+>the Key Mouth web app</a>.
+I won't go into details here though because there are
+<a href="https://github.com/TheodoreAlenas/key-mouth"
+>details on the GitHub page</a>.
+The most valuable lessons for me were rewritten projects
+and ideas that I had to throw away, so that's what I'd like to focus on.
+</p>
+<h3 class="fs4 fwn bdb2 mt3">The 2 rewrites of this site</h3>
+<p>
+The site used to have a typical menu at the top.
+</p>
+<h4 class="fs3 fwn">Identity buffee</h4>
+<p>
+Abstract PHP functions that compose HTML code.
+It's still <a href="old-versions/13-before-abandoning/en/index.html"
+>served</a> and it's on
+<a href="https://github.com/TheodoreAlenas/personal-website-1/"
+>GitHub</a>.
+</p>
+<pre class="code1"><code>include_once(&quot;common/wraps/<b>typical-layouts</b>.php&quot;);
+[...]
+function <b>get_biography_html</b>(string $language) &lbrace;
+  return <b>get_typical_layout</b>&lpar;
+    $language,</code></pre>
+
+<h4 class="fs3 fwn">Fewest layers possible</h4>
+<p>
+Abstractions got replaced with abbreviations.
+I serve an
+<a href="old-versions/20-hamburger-menu/en/index.html"
+>older</a> and a
+<a href="old-versions/21-blue-mountains-many-themes/en/index.html"
+>newer</a> version
+and it's on
+<a href="https://github.com/TheodoreAlenas/personal-website-2/"
+>GitHub</a>.
+</p>
+<pre class="code1"><code>&lt;?php $STR_XML = <b>simplexml_load_file</b>(&quot;biography/bio-high-school.xml&quot;) ?&gt;
+&lt;h2&gt;&lt;?php $b(&quot;<b>title</b>&quot;) ?&gt;&lt;/h2&gt;
+&lt;p&gt;
+    &lt;?php $b(&quot;<b>graduated</b>&quot;) ?&gt;
+    &lt;a href=&quot;http://2lyk-amaliad.ilei.sch.gr/wordpress17/&quot;
+    &gt;&lt;?php $b(&quot;<b>high_school</b>&quot;) ?&gt;&lt;/a&gt;</code></pre>
+<h4 class="fs3 fwn">Least text possible</h4>
+<p>
+<a href="https://www.kevinpowell.co/">Kevin Powell's site</a>
+inspired me to reduce the text,
+to the point that I could serve hand written HTML.
+</p>
+<pre class="code1"><code><b>&lt;h4 class=&quot;fs3 fwn&quot;&gt;</b>Fewest layers possible<b>&lt;/h4&gt;</b>
+<b>&lt;p&gt;</b>
+Abstractions got replaced with abbreviations.
+I serve an
+<b>&lt;a href=&quot;old-versions/20-hamburger-menu/en/index.html&quot;
+&gt;</b>older<b>&lt;/a&gt;</b> and a</code></pre>
+<h4 class="fs3 fwn">Conclusion</h4>
+<p>
+At first it looks like I lowered the requirements to get away with draft code
+but I'd say the requirements overall went up.
+It was a requirement to be laconic,
+one could say there was a requirement to
+make the browser tools reflect the source code better,
+and it's fun to hand write HTML with no indentation.
+</p>
+<h3 class="fs4 fwn bdb2 mt3">The 3 rewrites of my hotkey system</h4>
+<p>
+I use an odd operating system which relies on key combinations
+becuase there's no taskbar or bars on windows.
+I had one real option, to use
+<a href="https://github.com/baskerville/sxhkd"><code>sxhkd</code></a>,
+but I wanted a pop-up guide too like
+<a href="https://github.com/folke/which-key.nvim"><code>which-key</code></a>
+and I couldn't have one.
+</p>
+<h4 class="fs3 fwn">Prompt for next key</h4>
+<p>
+3 bash scripts and the language shown below.
+A terminal appeared to list keys and take input.
+</p>
+<pre class="code1"><code><b>s *screenshot</b>   sel=$(slop -f &quot;-i %i -g %g&quot;); shotgun $sel /tmp/screenshot.png
+<b>S *scrsh-fulls</b>  sleep 0; shotgun /tmp/screenshot.png</code></pre>
+<p>
+The terminal messed with the notion of previous window
+and the hotkeys for switching windows had bugs.
+</p>
+<h4 class="fs3 fwn">Hotkey shell commands</h4>
+<p>
+A new demand was that
+Win + e, Win + Alt + r
+should also be possible from the terminal as
+<code>al e +r</code>.
+</p>
+<p>
+Another new demand is that Win + m, Win + v
+is bound to <code>pacmd set-sink-volume 0 ...</code>
+and I'll be prompted to fill in the gap.
+It's uploaded on
+<a href="https://github.com/TheodoreAlenas/hotkey-system-2-alk"
+>GitHub</a> after the fact.
+</p>
+<pre class="code1"><code><b>video | V)</b> mpv_shut_up $(find ~/img/go -name '*.mp4' | shuf) <b>;;</b>
+<b>screenshot | s)</b> sxiv /tmp/screenshot.png <b>;;</b></code></pre>
+<p>
+The configuration code was verbose
+and the commands couldn't be listed reliably.
+It wasn't actually used it in the terminal either.
+</p>
+<h4 class="fs3 fwn">Code snippet composer</h4>
+<p>
+The demands went up
+but they weren't based on real needs.
+It's on
+<a href="https://github.com/TheodoreAlenas/alsnip/blob/main/example-config/reset.sh"
+>GitHub</a>.
+</p>
+<p>
+There had to be a list of text snippets,
+some of which are operating system commands,
+some of which are bound to hotkeys.
+Some can prompt for completion.
+The completion gives hints,
+a bar shows the final command that ran,
+and each text snippet has an easily accessible description.
+Other purposes for the text snippets were shell aliases,
+copying ASCII art and
+completing parts of a C for loop and copying it.
+Below is part of the list that appeared on the screen.
+</p>
+<pre class="code1"><code>vol1  .m1 /auto   | pacmd set-sink-volume 0 6000
+vol0  .m0 /auto   | pacmd set-sink-volume 0 0
+wm_t7 .!7 /auto   | bspc node --to-desktop temporary --follow
+wm_b7 .^7 /auto   | bspc node @temporary:/ --to-desktop focused</code></pre>
+<p>
+The configuration was shell scripts that printed shell scripts.
+It became so slow that I considered caching.
+</p>
+<h4 class="fs3 fwn">Self-installing shell script</h4>
+<pre class="code1"><code><b>about_logging</b>() { <b>tail /tmp/scmd.sh</b>; echo &quot;Should have lines that look like: <b>func() { echo hi; } #>>hi</b>&quot;; }
+<b>about_why</b>() { echo &quot;<b>For the syntax highlighting and to reduce bugs</b>. I've made many abstract hotkey systems.&quot;; }
+  [...]
+<b>volume_set_8</b>() { pacmd set-sink-volume 0 48000; } <b>#m8</b>
+<b>volume_set_9</b>() { pacmd set-sink-volume 0 54000; } <b>#m9</b>
+<b>volume_set_custom</b>() { pacmd set-sink-volume 0 &quot;$(:|dmenu)&quot;; }
+  [...]
+<b>scmd_run</b>() &lbrace; c=&quot;$(dmenu &lt; &quot;$(<b>this_file</b>)&quot; | cut -d&#039;(&#039; -f1)&quot;; test &quot;$c&quot; &amp;&amp; <b>scmd_with_bar_status</b> &quot;$c&quot;; &rbrace; <b>#x</b>
+  [...]
+<b>this_file</b>() { echo ~/.config/scmd.sh; }</code></pre>
+<p>
+I got syntax highlighting in my configuration file,
+I got a listing, a superset of the hotkey commands,
+a bar saying what ran,
+I could run the same actions from the terminal
+and for the first time I could easily log the commands and their output.
+</p>
+<p>
+It's on
+<a href="https://github.com/TheodoreAlenas/dotfiles/blob/main/scmd.sh"
+>GitHub</a>
+among my dotfiles.
+</p>
+<h4 class="fs3 fwn">Conclusion</h4>
+<p>
+This project made me think of code as a person going through phases.
+It started relatable, then it became fancy and then almost grumpy.
+Just like the website, I ended up with one file with flat hierarchies.
+Maybe at scale a project can't go through phases in the same way
+but I find this phenomenon to be fascinating.
+</p>
+<h3 class="fs4 fwn bdb2 mt3">Other experiments at home</h4>
+<p>
+Some other stories are
+the directory structure of my laptop
+which was restructured 4 times alongside its remote backup,
+the image tagging facilities which used python GUIs at first,
+I was trying to decorate my operating system for some time,
+I tried to &quot;clean-up&quot; the
+<a href="https://tools.suckless.org/dmenu/"><code>dmenu</code></a>
+project but I had to accept I made it worse and I re-wrote a
+<a href="https://github.com/TheodoreAlenas/"
+>clock pop-up</a>
+from Python to C and it ended up uglier.
+</p>
+<h3 class="fs4 fwn mt3">Thanks for reading</h3>
+<p>
+Have a nice day, don't hesitate to hit me up!
+</p>
+<p class="mt5" style="text-align: center">
+<a href="mailto:dimakopt732@gmail.com"
+>Gmail</a>: dimakopt732@gmail.com
+</p>
+</main>
+</body>
+</html>
+<!--
+    Copyright (c) 2024 Dimakopoulos Theodoros <dimakopt732@gmail.com>
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+-->

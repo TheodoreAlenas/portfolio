@@ -46,27 +46,20 @@ function setColorScheme(value) {
 
 [data-sch=contr] .bg { background-color: #000; }
 
-.bg { background-color: #333; }
+.bg { background-color: #202028; }
 a { color: #bcf; }
 a:visited { color: #faf; }
 .fs1 { color: #eee; }
 .fs2 { color: #ddd; }
 .fs3 { color: #ccc; }
-.fs4 { color: #b8b4b0; }
-.fs5 { color: #ba9; }
+.fs4 { color: #bbb; }
+.fs5 { color: #bbb; }
 
 [data-sch=light] .code1 b { color: #863; }
 [data-sch=light] .code1 {
     background-color: #fafafa;
     border: 1px solid #ccc;
-    color: #353;
-}
-
-.code1 b { color: #a85; }
-.code1 {
-    background-color: #282828;
-    border: 1px solid #444;
-    color: #8a8;
+    color: #343;
 }
 
 [data-sch=contr] .code1 b { color: #fc8; }
@@ -74,6 +67,13 @@ a:visited { color: #faf; }
     background-color: #080808;
     border: 1px solid #777;
     color: #fff;
+}
+
+.code1 b { color: #c87; }
+.code1 {
+    background-color: #18181e;
+    border: 1px solid #444;
+    color: #8a9;
 }
 
 body { font-family: system-ui,sans-serif; margin: 0; }
@@ -90,30 +90,22 @@ pre b { font-family: source-code-pro-semibold,monospace; }
     font-family: source-code-pro-semibold;
     src: url(r/source-code-pro-semibold.otf);
 }
-.ls1 { display: flex; flex-wrap: wrap; padding: 0; }
-.ls1 > li { list-style: none; margin: 0 1.6em 0 0; }
-.ls1 > li > a { display: inline-block; padding: 0.5em 0; }
-.ls2 { display: flex; flex-wrap: wrap; padding: 0; }
-.ls2 > li { list-style: none; }
-.ls2 > li > a { display: inline-block; padding: 0.2em 1.6em; }
+.ls1 { display: flex; flex-wrap: wrap; column-gap: 1.4em; padding: 0; }
+.ls1 > li { list-style: none; }
+.ls1 > li > a { display: flex; align-items: center; gap: 0.4em; padding: 1em 0; }
 fieldset { border: none; padding: 0; margin: 0; }
 fieldset legend { float: left; }
 fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
-.column { margin: 0 auto; max-width: 35cm; padding: 0 1rem; }
+.column { margin: 0 auto; max-width: 30cm; padding: 0 1rem; }
 .fs1 { font-size: 12pt; line-height: 1.4em; }
 .fs2 { font-size: 14pt; line-height: 1.4em; }
 .fs3 { font-size: 18pt; line-height: 1.2em; }
 .fs4 { font-size: 24pt; line-height: 1.1em; }
-.fs5 { font-size: 40pt; line-height: 1em; }
+.fs5 { font-size: 32pt; line-height: 1em; }
 .fwn { font-weight: normal; }
-.icon { width: 1.4em; height: 1.4em; }
 .picstretch { display: block; text-align: center; }
 .flex { display: flex; }
 .w100p { width: min(12cm, 100%); }
-@media (min-width: 20cm) {
-    .wide-flex { display: flex; }
-    .wide-fix-size { width: min(512px, 40vw); }
-}
 .flexac { display: flex; align-items: center; }
 .flexjc { display: flex; justify-content: center; }
 .flexw { flex-wrap: wrap; }
@@ -124,10 +116,11 @@ fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
 .ml3 { margin-left: 0.5em; }
 .ml4 { margin-left: 1em; }
 .ml5 { margin-left: 4em; }
-.mt2 { margin-top: 1cm; }
-.mt3 { margin-top: 2cm; }
-.mt4 { margin-top: 3cm; }
-.mt5 { margin-top: 6cm; }
+.mt1 { margin-top: 1.4cm; }
+.mt2 { margin-top: 1.8cm; }
+.mt3 { margin-top: 2.2cm; }
+.mt4 { margin-top: 2.6cm; }
+.mt5 { margin-top: 3.0cm; }
 .p20 { padding: 1rem 0; }
 .p30 { padding: 2rem 0; }
 .pl3 { padding-left: 1em; }
@@ -135,36 +128,52 @@ fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
 .pt2 { padding-top: 1rem; }
 .gap3 { column-gap: 1cm; }
 .gap4 { column-gap: 2cm; }
+@media (min-width: 20cm) {
+    .wide-flex { display: flex; }
+    .wide-fix-size { width: min(10cm, 40vw); }
+    .wide-pb { padding-bottom: 1cm; }
+    .fs5 { font-size: 40pt; line-height: 1em; }
+    .mt1 { margin-top: 2cm; }
+    .mt2 { margin-top: 3cm; }
+    .mt3 { margin-top: 4cm; }
+    .mt4 { margin-top: 5cm; }
+    .mt5 { margin-top: 8cm; }
+}
 .cards1 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10cm), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8cm), 1fr));
 }
 .bdb2 { border-bottom: 1px solid; padding-bottom: 0.2em; }
 </style>
 </head>
 <body class="bg fs2">
-<header class="column flexac flexw gap4 spc pt2">
-<h1 class="fs3 fwn"
->Χαρτοφυλάκιο</h1>
-<fieldset>
+<header class="column flexac flexw gap3 spc pt2 wide-pb">
+<h1 class="fs3 fwn">
+Χαρτοφυλάκιο
+</h1>
+<fieldset class="fs1">
 <legend class="flexac">
-<img src="r/icon-theme.svg" class="icon" alt="" width=512 height=512>
-<span class="ml3">
-Θέμα
-</span>
+<svg
+role="img"
+aria-label="Θέμα"
+width="1.4em"
+height="1.4em"
+viewBox="0 0 16 16"
+version="1.1"
+id="svg1">
+<g>
+<circle
+style="fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round"
+cy="8" cx="8" r="7" />
+<path
+d="m 8,16 a 8,8 0 0 1 -6.9282032,-4 8,8 0 0 1 0,-8 A 8,8 0 0 1 8,0"
+fill="currentColor"/>
+</g>
+</svg>
 </legend>
-<label for="theme-light" class="pl4 p30">
-<input type="radio" name="theme" value="light" id="theme-light" />
-Ανοιχτό
-</label>
-<label for="theme-dark" class="ml2 p30">
-<input type="radio" name="theme" value="dark" id="theme-dark" />
-Σκούρο
-</label>
-<label for="theme-contr" class="ml2 p30">
-<input type="radio" name="theme" value="contr" id="theme-contr" />
-Αντίθεση
-</label>
+<input type="radio" name="theme" value="light" id="theme-light" title="Ανοιχτό θέμα" class="ml4"/>
+<input type="radio" name="theme" value="dark" id="theme-dark" title="Σκούρο θέμα" />
+<input type="radio" name="theme" value="contr" id="theme-contr" title="Έντονη αντίθεση" />
 <script>
   let q = "input[type=radio][name=theme]"
   const themeRadios = document.querySelectorAll(q);
@@ -181,8 +190,8 @@ fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
 <main class="column">
 <div class="wide-flex gap4">
 <section>
-<h2 class="fs5 fwn m20 mt4">
-<!-- στα Αγγλικά εδώ λέει I am χωρίς strong -->
+<h2 class="fs5 fwn m20 mt3">
+<!-- στα Αγγλικά εδώ λέει I'm χωρίς strong -->
 <strong>Θοδωρής Δημακόπουλος</strong>
 </h2>
 <p class="fs4 m20">
@@ -195,7 +204,7 @@ fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
 ή στην ανάγκη ολικής απασχόλησης τριών μηνών.
 </p>
 </section>
-<picture class="picstretch mt3">
+<picture class="picstretch mt2">
 <source
 srcset="r/face-512x512-lossless-1-compr-4.webp"
 type="image/webp">
@@ -207,17 +216,54 @@ alt="Πρόσωπο άντρα, πράσινα μάτια, μακρύ μαλλί
 </div>
 <ul class="fs2 ls1">
 
-<li><a href="https://github.com/TheodoreAlenas/"
->GitHub</a></li>
+<li>
+<a href="https://github.com/TheodoreAlenas/">
+<svg
+aria-hidden="true"
+viewBox="0 0 24 24"
+version="1.1"
+width="1.2em"
+height="1.2em"
+fill="currentColor"
+>
+    <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
+</svg>
+GitHub
+</a>
+</li>
 
-<li><a href="mailto:dimakopt732@gmail.com"
->Gmail</a></li>
+<li>
+<a href="mailto:dimakopt732@gmail.com">
+<svg
+aria-hidden="true"
+viewBox="0 0 460.8 460.8"
+width="1.2em"
+height="1.2em"
+>
+<defs/>
+<rect id="shape0" transform="translate(28.5495652173912, 66.1147826086956)" fill="none" stroke="currentColor" stroke-width="43.2" stroke-linecap="square" stroke-linejoin="bevel" width="403.700869565217" height="330.073043478261" rx="25.6488771266541" ry="33.3384813145267"/><path id="shape1" transform="translate(20.0347826086957, 77.1339130434782)" fill="currentColor" fill-rule="evenodd" stroke="currentColor" stroke-width="7.2" stroke-linecap="square" stroke-linejoin="bevel" d="M1.50261 72.0311L210.365 202.852L417.224 70.4421L417.725 21.1856L394.685 0L26.0452 0L0 19.5967Z"/>
+</svg>
+Gmail
+</a>
+</li>
 
-<li><a href="https://www.linkedin.com/in/theodoros-dimakopoulos-726ba1289/"
->LinkedIn</a></li>
+<li>
+<a href="https://www.linkedin.com/in/theodoros-dimakopoulos-726ba1289/">
+<svg
+aria-hidden="true"
+viewBox="0 0 24 24"
+fill="currentColor"
+width="1.2em"
+height="1.2em"
+>
+<path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+</svg>
+LinkedIn
+</a>
+</li>
 
 </ul>
-<h2 class="mt4 fs4 fwn"
+<h2 class="mt3 fs4 fwn"
 >Γενικά</h2>
 <div class="cards1 gap3">
 <section>
@@ -225,8 +271,7 @@ alt="Πρόσωπο άντρα, πράσινα μάτια, μακρύ μαλλί
 <p>
 Έκανα τρίμηνη πρακτική πλήρους απασχόλησης
 <a href="https://helvia.ai/">
-στη Helvia
-</a>
+στη Helvia</a>,
 τον Ιούλιο του 2024.
 Τον πρώτο μήνα μάθαινα DevOps/operations και τους δύο επόμενους
 εξοικειώθηκα με τα εργαλεία NextJS, MongoDB και FastAPI της Python
@@ -287,9 +332,9 @@ Linux Mint και έπειτα, επειδή δυσκολευόμουν να ρ�
 </section>
 </div>
 
-<h3 class="fs3 fwn">
+<h3 class="fs4 fwn">
 <a href="r/cv-2024-10-10.pdf"
->CV σε PDF</a>
+><strong>CV</strong> σε PDF</a>
 </h3>
 <p>
 Το CV δίνει πιο πολλή έμφαση σε μετρήσιμες έννοιες.
@@ -300,7 +345,7 @@ Linux Mint και έπειτα, επειδή δυσκολευόμουν να ρ�
 <p>
 Το πρότζεκτ που με επηρέασε περισσότερο με διαφορά είναι
 <a href="https://theodoros-d-alenas.site/key-mouth/"
->η εφαρμογή Key Mouth</a>,
+>η εφαρμογή Key Mouth</a>.
 δε θα αναφέρω όμως περισσότερα επειδή έχω αναφέρει όλες τις
 <a href="https://github.com/TheodoreAlenas/key-mouth"
 >λεπτομέρειες στο GitHub</a>.
@@ -313,8 +358,7 @@ Linux Mint και έπειτα, επειδή δυσκολευόμουν να ρ�
 </p>
 <h4 class="fs3 fwn">Συναρμολογούμενες συναρτήσεις</h4>
 <p>
-PHP συναρτήσεις που επιστρέφουν strings HTML κώδικα.
-<a href="old-versions/13-before-abandoning/en/index.html"
+PHP συναρτήσεις που επιστρέφουν strings HTML κώδικα.<a href="old-versions/13-before-abandoning/en/index.html"
 >Το σερβίρω</a> ακόμα και υπάρχει και στο
 <a href="https://github.com/TheodoreAlenas/personal-website-1/"
 >GitHub</a>.
@@ -435,7 +479,7 @@ wm_b7 .^7 /auto   | bspc node @temporary:/ --to-desktop focused</code></pre>
 Ρυθμιζόταν με shell scripts που παράγουν άλλα shell scripts.
 Άρχισε να χρειάζεται caching κάποια στιγμή και είπα να δοκιμάσω άλλη προσέγγιση.
 </p>
-<h4 class="fs3 fwn">Αυτόνομο shell script</h4>
+<h4 class="fs3 fwn">Self-installing shell script</h4>
 <pre class="code1"><code><b>about_logging</b>() { <b>tail /tmp/scmd.sh</b>; echo &quot;Should have lines that look like: <b>func() { echo hi; } #>>hi</b>&quot;; }
 <b>about_why</b>() { echo &quot;<b>For the syntax highlighting and to reduce bugs</b>. I've made many abstract hotkey systems.&quot;; }
   [...]
@@ -469,7 +513,7 @@ wm_b7 .^7 /auto   | bspc node @temporary:/ --to-desktop focused</code></pre>
 Ίσως σε μεγάλη κλίμακα να μη μπορεί ένα πρότζεκτ να περάσει από
 τέτοιες φάσεις αλλά έχει ενδιαφέρον αυτό το φαινόμενο.
 </p>
-<h3 class="fs4 fwn bdb2 mt3">Άλλοι πειραματισμοί</h4>
+<h3 class="fs4 fwn mt3">Άλλοι πειραματισμοί</h4>
 <p>
 Είχε αλλάξει πολλές φορές επίσης η δομή των φακέλων στο λάπτοπ μου
 και έπρεπε να αλλάζω αντίστοιχα το backup στον server,
@@ -484,7 +528,7 @@ wm_b7 .^7 /auto   | bspc node @temporary:/ --to-desktop focused</code></pre>
 >αναδυόμενο ρολόι</a>
 από Python σε C και έχασε σε εμφάνιση.
 </p>
-<h3 class="fs4 fwn mt3">Καλή συνέχεια!</h3>
+<h3 class="fs4 fwn mt1">Καλή συνέχεια!</h3>
 <p>
 Μη διστάσετε να μου γράψετε για ο,τιδήποτε.
 </p>

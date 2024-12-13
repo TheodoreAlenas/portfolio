@@ -42,7 +42,7 @@ so I can get my degree.''',
         '''Για πτυχίο θα χρειαστώ πρακτική άσκηση,
 κατά προτίμηση μερικής απασχόλησης έξι μηνών
 ή στην ανάγκη ολικής απασχόλησης τριών μηνών.''')
-    t.t('alt="light brown man with long slightly curly hair"',
+    t.t('alt="face of man, green eyes, long hair"',
         'alt="Πρόσωπο άντρα, πράσινα μάτια, μακρύ μαλλί"')
     t.t('About me', 'Γενικά')
     t.t('In July 2024 I interned full time',

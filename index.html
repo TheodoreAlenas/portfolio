@@ -37,7 +37,7 @@ function setColorScheme(value) {
 
 [data-sch=light] .bg { background-color: #fff; }
 [data-sch=light] a { color: #025; }
-[data-sch=light] a:visited { color: #404; }
+[data-sch=light] a:visited { color: #302; }
 [data-sch=light] .fs1 { color: #000; }
 [data-sch=light] .fs2 { color: #111; }
 [data-sch=light] .fs3 { color: #222; }
@@ -45,41 +45,44 @@ function setColorScheme(value) {
 [data-sch=light] .fs5 { color: #444; }
 
 [data-sch=contr] .bg { background-color: #000; }
+[data-sch=contr] a { color: #ff0; }
+[data-sch=contr] a:visited { color: #ffa; }
 
 .bg { background-color: #202028; }
 a { color: #bcf; }
-a:visited { color: #faf; }
+a:visited { color: #dcd; }
 .fs1 { color: #eee; }
 .fs2 { color: #ddd; }
 .fs3 { color: #ccc; }
 .fs4 { color: #bbb; }
 .fs5 { color: #bbb; }
 
-[data-sch=light] .code1 b { color: #863; }
+[data-sch=light] .code1 b { color: #301; }
 [data-sch=light] .code1 {
     background-color: #fafafa;
     border: 1px solid #ccc;
-    color: #343;
+    color: #333;
 }
 
-[data-sch=contr] .code1 b { color: #fc8; }
+[data-sch=contr] .code1 b { color: #ff0; }
 [data-sch=contr] .code1 {
-    background-color: #080808;
+    background-color: #000;
     border: 1px solid #777;
     color: #fff;
 }
 
-.code1 b { color: #c87; }
+.code1 b { color: #da8; }
 .code1 {
     background-color: #18181e;
     border: 1px solid #444;
-    color: #8a9;
+    color: #ccc;
 }
 
 body { font-family: system-ui,sans-serif; margin: 0; }
 a { text-underline-offset: 0.3em; }
 pre { overflow: scroll; padding: 1em; border-radius: 5px; }
 pre > code { font-size: 0.4cm; }
+pre b { font-weight: normal; }
 code { font-family: source-code-pro-regular,monospace; }
 pre b { font-family: source-code-pro-semibold,monospace; }
 @font-face {
@@ -171,9 +174,13 @@ fill="currentColor"/>
 </g>
 </svg>
 </legend>
-<input type="radio" name="theme" value="light" id="theme-light" title="Light theme" class="ml4"/>
-<input type="radio" name="theme" value="dark" id="theme-dark" title="Dark theme" />
-<input type="radio" name="theme" value="contr" id="theme-contr" title="High contrast theme" />
+<input
+type="radio" name="theme" value="light" id="theme-light" title="Light theme" class="ml4"
+><input
+ type="radio" name="theme" value="dark" id="theme-dark" title="Dark theme"
+ ><input
+  type="radio" name="theme" value="contr" id="theme-contr" title="High contrast theme"
+  >
 <script>
   let q = "input[type=radio][name=theme]"
   const themeRadios = document.querySelectorAll(q);
@@ -211,7 +218,7 @@ type="image/webp">
 <img
 class="w100p wide-fix-size"
 src="r/face-512x512.png"
-alt="light brown man with long slightly curly hair"
+alt="face of man, green eyes, long hair"
 >
 </picture>
 </div>

@@ -93,13 +93,52 @@ pre b { font-family: source-code-pro-semibold,monospace; }
     font-family: source-code-pro-semibold;
     src: url(r/source-code-pro-semibold.otf);
 }
+
 .ls1 { display: flex; flex-wrap: wrap; column-gap: 1.4em; padding: 0; }
 .ls1 > li { list-style: none; }
 .ls1 > li > a { display: flex; align-items: center; gap: 0.4em; padding: 1em 0; }
-fieldset { border: none; padding: 0; margin: 0; }
-fieldset legend { float: left; }
-fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
+.ls2 { padding: 0; margin: 0.5em 0; list-style: none; }
 .column { margin: 0 auto; max-width: 30cm; padding: 0 1rem; }
+
+fieldset.modal {
+    border: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+fieldset.modal > legend {
+    padding-right: 1.3em;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+fieldset.modal > legend::after {
+    content: "";
+    position: absolute;
+    top: 0.2em;
+    right: 0;
+    width: 0.5em;
+    height: 0.5em;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    transform: rotate(45deg);
+}
+fieldset.modal:hover > legend::after {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+fieldset.modal > .modal-box {
+    position: absolute;
+    top: -100vh;
+    left: -100vw;
+    width: max-content;
+}
+fieldset.modal:focus-within > .modal-box {
+    top: 0;
+    left: 0;
+}
+
 .fs1 { font-size: 12pt; line-height: 1.4em; }
 .fs2 { font-size: 14pt; line-height: 1.4em; }
 .fs3 { font-size: 18pt; line-height: 1.2em; }
@@ -151,14 +190,10 @@ fieldset label, fieldset input { padding: 1em 0; cursor: pointer; }
 </head>
 <body class="bg fs2">
 <header class="column flexac flexw gap3 spc pt2 wide-pb">
-<h1 class="fs3 fwn">
-Portfolio
-</h1>
-<fieldset class="fs1">
-<legend class="flexac">
+<fieldset class="modal">
+<legend tabindex="0" class="flexac">
 <svg
-role="img"
-aria-label="Theme"
+aria-hidden="true"
 width="1.4em"
 height="1.4em"
 viewBox="0 0 16 16"
@@ -173,14 +208,30 @@ d="m 8,16 a 8,8 0 0 1 -6.9282032,-4 8,8 0 0 1 0,-8 A 8,8 0 0 1 8,0"
 fill="currentColor"/>
 </g>
 </svg>
+<span class="ml3">
+Theme
+</span>
 </legend>
-<input
-type="radio" name="theme" value="light" id="theme-light" title="Light theme" class="ml4"
-><input
- type="radio" name="theme" value="dark" id="theme-dark" title="Dark theme"
- ><input
-  type="radio" name="theme" value="contr" id="theme-contr" title="High contrast theme"
-  >
+<ul tabindex="0" class="modal-box bg ls2">
+<li>
+<label for="theme-light">
+<input type="radio" name="theme" value="light" id="theme-light">
+Light theme
+</label>
+</li>
+<li>
+<label for="theme-dark">
+<input type="radio" name="theme" value="dark" id="theme-dark">
+Dark theme
+</label>
+</li>
+<li>
+<label for="theme-contr">
+<input type="radio" name="theme" value="contr" id="theme-contr">
+High contrast dark
+</label>
+</li>
+</ul>
 <script>
   let q = "input[type=radio][name=theme]"
   const themeRadios = document.querySelectorAll(q);
@@ -192,6 +243,9 @@ type="radio" name="theme" value="light" id="theme-light" title="Light theme" cla
   }
 </script>
 </fieldset>
+<h1 class="fs3 fwn">
+Portfolio
+</h1>
 <a class="p20" href="index-el.html">Greek</a>
 </header>
 <main class="column">

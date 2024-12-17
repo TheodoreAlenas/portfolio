@@ -22,11 +22,11 @@ def translate_t(t):
     t.t('Theodoros Dimakopoulos', 'Θοδωρής Δημακόπουλος')
     t.t('content="Biography and portfolio overview, for employers"',
         'content="Βιογραφικό και χαρτοφυλάκιο για εργοδότες"')
+    t.t('Portfolio', 'Χαρτοφυλάκιο')
     t.t('Theme', 'Θέμα')
     t.t('Light theme', 'Ανοιχτό θέμα')
     t.t('Dark theme', 'Σκούρο θέμα')
     t.t('High contrast dark', 'Έντονη αντίθεση')
-    t.t('Portfolio', 'Χαρτοφυλάκιο')
     t.t('''href="index-el.html"''', '''href="index.html"''')
     t.t("Greek", "English")
     t.t("I'm", "<!-- στα Αγγλικά εδώ λέει I'm χωρίς strong -->")

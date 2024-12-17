@@ -36,7 +36,8 @@ function setColorScheme(value) {
 :root { color-scheme: light dark; }
 
 [data-sch=light] .bg { background-color: #fff; }
-[data-sch=light] a { color: #025; }
+[data-sch=light] a,
+[data-sch=light] a.fs1 { color: #025; }
 [data-sch=light] a:visited { color: #302; }
 [data-sch=light] .fs1 { color: #000; }
 [data-sch=light] .fs2 { color: #111; }
@@ -45,11 +46,13 @@ function setColorScheme(value) {
 [data-sch=light] .fs5 { color: #444; }
 
 [data-sch=contr] .bg { background-color: #000; }
-[data-sch=contr] a { color: #ff0; }
+[data-sch=contr] a,
+[data-sch=contr] a.fs1 { color: #ff0; }
 [data-sch=contr] a:visited { color: #ffa; }
 
 .bg { background-color: #333; }
-a { color: #bcf; }
+a,
+a.fs1 { color: #bcf; }
 a:visited { color: #dcd; }
 .fs1 { color: #eee; }
 .fs2 { color: #ddd; }
@@ -80,6 +83,7 @@ a:visited { color: #dcd; }
 
 body { font-family: system-ui,sans-serif; margin: 0; }
 a { text-underline-offset: 0.3em; }
+input, label { cursor: pointer; }
 pre { overflow: scroll; padding: 1em; border-radius: 5px; }
 pre > code { font-size: 0.4cm; }
 pre b { font-weight: normal; }
@@ -100,12 +104,12 @@ pre b { font-family: source-code-pro-semibold,monospace; }
 .ls2 { padding: 0; margin: 0.5em 0; list-style: none; }
 .ls2 > li > label { display: inline-block; padding: 0.2em 0; }
 .column { margin: 0 auto; max-width: 30cm; padding: 0 1rem; }
+.header { position: relative; }
 
 fieldset.modal {
     border: none;
     padding: 0;
     margin: 0;
-    position: relative;
     display: inline-block;
 }
 fieldset.modal > legend {
@@ -123,7 +127,7 @@ fieldset.modal > legend::after {
     height: 0.5em;
     border-bottom: 1px solid;
     border-right: 1px solid;
-    transform: rotate(45deg);
+    transform: translate(0, 0.1em) rotate(45deg);
 }
 fieldset.modal:hover > legend::after {
     border-bottom: 2px solid;
@@ -132,12 +136,19 @@ fieldset.modal:hover > legend::after {
 fieldset.modal > .modal-box {
     position: absolute;
     top: -100vh;
-    left: -100vw;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    opacity: 0%;
+    transition: transform 0.08s linear, opacity 0.08s linear;
     width: max-content;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0 10px -8px;
 }
 fieldset.modal:focus-within > .modal-box {
-    top: 0;
-    left: 0;
+    top: 1em;
+    opacity: 100%;
+    transform: translate(-50%, 0);
 }
 
 .fs1 { font-size: 12pt; line-height: 1.4em; }
@@ -147,6 +158,7 @@ fieldset.modal:focus-within > .modal-box {
 .fs5 { font-size: 32pt; line-height: 1em; }
 .fwn { font-weight: normal; }
 .picstretch { display: block; text-align: center; }
+.img { display: block; border-radius: 0 4px 4px 0; }
 .flex { display: flex; }
 .w100p { width: min(12cm, 100%); }
 .flexac { display: flex; align-items: center; }
@@ -174,7 +186,6 @@ fieldset.modal:focus-within > .modal-box {
 @media (min-width: 20cm) {
     .wide-flex { display: flex; }
     .wide-fix-size { width: min(10cm, 40vw); }
-    .wide-pb { padding-bottom: 1cm; }
     .fs5 { font-size: 40pt; line-height: 1em; }
     .mt1 { margin-top: 2cm; }
     .mt2 { margin-top: 3cm; }
@@ -190,7 +201,10 @@ fieldset.modal:focus-within > .modal-box {
 </style>
 </head>
 <body class="bg fs2">
-<header class="column flexac flexw gap3 spc pt2 wide-pb">
+<header class="column flexac flexw gap3 spc pt2 header">
+<h1 class="fs3 fwn">
+Χαρτοφυλάκιο
+</h1>
 <fieldset class="modal">
 <legend tabindex="0" class="flexac">
 <svg
@@ -209,7 +223,7 @@ d="m 8,16 a 8,8 0 0 1 -6.9282032,-4 8,8 0 0 1 0,-8 A 8,8 0 0 1 8,0"
 fill="currentColor"/>
 </g>
 </svg>
-<span class="ml3">
+<span class="ml3 fs1">
 Θέμα
 </span>
 </legend>
@@ -244,9 +258,6 @@ fill="currentColor"/>
   }
 </script>
 </fieldset>
-<h1 class="fs3 fwn">
-Χαρτοφυλάκιο
-</h1>
 <a class="p20" href="index.html">English</a>
 </header>
 <main class="column">
@@ -266,13 +277,13 @@ fill="currentColor"/>
 ή στην ανάγκη ολικής απασχόλησης τριών μηνών.
 </p>
 </section>
-<picture class="picstretch mt2">
+<picture class="picstretch picrad mt2">
 <source
-srcset="r/face-512x512-lossless-1-compr-4.webp"
+srcset="r/hood-334x445.webp"
 type="image/webp">
 <img
-class="w100p wide-fix-size"
-src="r/face-512x512.png"
+class="w100p wide-fix-size img"
+src="r/hood-334x445.png"
 alt="Πρόσωπο άντρα, πράσινα μάτια, μακρύ μαλλί"
 >
 </picture>
@@ -280,7 +291,10 @@ alt="Πρόσωπο άντρα, πράσινα μάτια, μακρύ μαλλί
 <ul class="fs2 ls1">
 
 <li>
-<a href="https://github.com/TheodoreAlenas/">
+<a
+class="fs1"
+href="https://github.com/TheodoreAlenas/"
+>
 <svg
 aria-hidden="true"
 viewBox="0 0 24 24"
@@ -296,7 +310,10 @@ GitHub
 </li>
 
 <li>
-<a href="mailto:dimakopt732@gmail.com">
+<a
+class="fs1"
+href="mailto:dimakopt732@gmail.com"
+>
 <svg
 aria-hidden="true"
 viewBox="0 0 460.8 460.8"
@@ -306,12 +323,15 @@ height="1.2em"
 <defs/>
 <rect id="shape0" transform="translate(28.5495652173912, 66.1147826086956)" fill="none" stroke="currentColor" stroke-width="43.2" stroke-linecap="square" stroke-linejoin="bevel" width="403.700869565217" height="330.073043478261" rx="25.6488771266541" ry="33.3384813145267"/><path id="shape1" transform="translate(20.0347826086957, 77.1339130434782)" fill="currentColor" fill-rule="evenodd" stroke="currentColor" stroke-width="7.2" stroke-linecap="square" stroke-linejoin="bevel" d="M1.50261 72.0311L210.365 202.852L417.224 70.4421L417.725 21.1856L394.685 0L26.0452 0L0 19.5967Z"/>
 </svg>
-Gmail
+Email
 </a>
 </li>
 
 <li>
-<a href="https://www.linkedin.com/in/theodoros-dimakopoulos-726ba1289/">
+<a
+class="fs1"
+href="https://www.linkedin.com/in/theodoros-dimakopoulos-726ba1289/"
+>
 <svg
 aria-hidden="true"
 viewBox="0 0 24 24"

@@ -7,198 +7,9 @@
 <meta charset="UTF-8">
 <meta name="robots" content="index, follow">
 <link rel="icon" href="favicon.ico">
-<script>
-function initColorScheme() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const prefersContr = window.matchMedia('(prefers-contrast: more)').matches;
-    const preferredNow = prefersDark ? (prefersContr ? "contr" : "dark") : "light";
-
-    const lastPreferred = localStorage.getItem("portfolioColorSchemeLastPreferred");
-    const last = localStorage.getItem("portfolioColorSchemeLastUsed")
-    localStorage.setItem("portfolioColorSchemeLastPreferred", preferredNow);
-
-    if (lastPreferred === preferredNow && last)
-        setColorScheme(last);
-    else
-        setColorScheme(preferredNow);
-}
-
-initColorScheme();
-
-function setColorScheme(value) {
-    const binary = value === "contr" ? "dark" : value;
-    document.querySelector("html").style.colorScheme = binary;
-    document.querySelector("html").setAttribute("data-sch", value);
-    localStorage.setItem("portfolioColorSchemeLastUsed", value);
-}
-</script>
-<style>
-:root { color-scheme: light dark; }
-
-[data-sch=light] .bg { background-color: #fff; }
-[data-sch=light] a,
-[data-sch=light] a.fs1 { color: #025; }
-[data-sch=light] a:visited { color: #302; }
-[data-sch=light] .fs1 { color: #000; }
-[data-sch=light] .fs2 { color: #111; }
-[data-sch=light] .fs3 { color: #222; }
-[data-sch=light] .fs4 { color: #333; }
-[data-sch=light] .fs5 { color: #444; }
-
-[data-sch=contr] .bg { background-color: #000; }
-[data-sch=contr] a,
-[data-sch=contr] a.fs1 { color: #ff0; }
-[data-sch=contr] a:visited { color: #ffa; }
-
-.bg { background-color: #333; }
-a,
-a.fs1 { color: #bcf; }
-a:visited { color: #dcd; }
-.fs1 { color: #eee; }
-.fs2 { color: #ddd; }
-.fs3 { color: #ccc; }
-.fs4 { color: #bbb; }
-.fs5 { color: #bbb; }
-
-[data-sch=light] .code1 b { color: #301; }
-[data-sch=light] .code1 {
-    background-color: #fafafa;
-    border: 1px solid #ccc;
-    color: #333;
-}
-
-[data-sch=contr] .code1 b { color: #ff0; }
-[data-sch=contr] .code1 {
-    background-color: #000;
-    border: 1px solid #777;
-    color: #fff;
-}
-
-.code1 b { color: #da8; }
-.code1 {
-    background-color: #282828;
-    border: 1px solid #444;
-    color: #ccc;
-}
-
-body { font-family: system-ui,sans-serif; margin: 0; }
-a { text-underline-offset: 0.3em; }
-input, label { cursor: pointer; }
-pre { overflow-x: scroll; padding: 1em; border-radius: 5px; }
-pre > code { font-size: 0.4cm; }
-pre b { font-weight: normal; }
-code { font-family: source-code-pro-regular,monospace; }
-pre b { font-family: source-code-pro-semibold,monospace; }
-@font-face {
-    font-family: source-code-pro-regular;
-    src: url(r/source-code-pro-regular.otf);
-}
-@font-face {
-    font-family: source-code-pro-semibold;
-    src: url(r/source-code-pro-semibold.otf);
-}
-
-.ls1 { display: flex; flex-wrap: wrap; column-gap: 1.4em; padding: 0; }
-.ls1 > li { list-style: none; }
-.ls1 > li > a { display: flex; align-items: center; gap: 0.4em; padding: 1em 0; }
-.ls2 { padding: 0; margin: 0.5em 0; list-style: none; }
-.ls2 > li > label { display: inline-block; padding: 0.2em 0; }
-.column { margin: 0 auto; max-width: 30cm; padding: 0 1rem; }
-.header { position: relative; }
-
-fieldset.modal {
-    border: none;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
-fieldset.modal > legend {
-    padding-right: 1.3em;
-    border-radius: 4px;
-    position: relative;
-    cursor: pointer;
-}
-fieldset.modal > legend::after {
-    content: "";
-    position: absolute;
-    top: 0.2em;
-    right: 0;
-    width: 0.5em;
-    height: 0.5em;
-    border-bottom: 1px solid;
-    border-right: 1px solid;
-    transform: translate(0, 0.1em) rotate(45deg);
-}
-fieldset.modal:hover > legend::after {
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-}
-fieldset.modal > .modal-box {
-    position: absolute;
-    top: -100vh;
-    left: 50%;
-    transform: translate(-50%, -10px);
-    opacity: 0%;
-    transition: transform 0.08s linear, opacity 0.08s linear;
-    width: max-content;
-    padding: 1em;
-    border-radius: 1em;
-    box-shadow: 0 0 10px -8px;
-}
-fieldset.modal:focus-within > .modal-box {
-    top: 1em;
-    opacity: 100%;
-    transform: translate(-50%, 0);
-}
-
-.fs1 { font-size: 12pt; line-height: 1.4em; }
-.fs2 { font-size: 14pt; line-height: 1.4em; }
-.fs3 { font-size: 18pt; line-height: 1.2em; }
-.fs4 { font-size: 24pt; line-height: 1.1em; }
-.fs5 { font-size: 32pt; line-height: 1em; }
-.fwn { font-weight: normal; }
-.picstretch { display: block; text-align: center; }
-.img { display: block; border-radius: 0 4px 4px 0; }
-.flex { display: flex; }
-.w100p { width: min(12cm, 100%); }
-.flexac { display: flex; align-items: center; }
-.flexjc { display: flex; justify-content: center; }
-.flexw { flex-wrap: wrap; }
-.spc { justify-content: space-between; }
-.m20 { margin: 0.6rem 0; }
-.m30 { margin: 1rem 0; }
-.ml2 { margin-left: 0.2em; }
-.ml3 { margin-left: 0.5em; }
-.ml4 { margin-left: 1em; }
-.ml5 { margin-left: 4em; }
-.mt1 { margin-top: 1.4cm; }
-.mt2 { margin-top: 1.8cm; }
-.mt3 { margin-top: 2.2cm; }
-.mt4 { margin-top: 2.6cm; }
-.mt5 { margin-top: 3.0cm; }
-.p20 { padding: 1rem 0; }
-.p30 { padding: 2rem 0; }
-.pl3 { padding-left: 1em; }
-.pl4 { padding-left: 2em; }
-.pt2 { padding-top: 1rem; }
-.gap3 { column-gap: 1cm; }
-.gap4 { column-gap: 2cm; }
-@media (min-width: 20cm) {
-    .wide-flex { display: flex; }
-    .wide-fix-size { width: min(10cm, 40vw); }
-    .fs5 { font-size: 40pt; line-height: 1em; }
-    .mt1 { margin-top: 2cm; }
-    .mt2 { margin-top: 3cm; }
-    .mt3 { margin-top: 4cm; }
-    .mt4 { margin-top: 5cm; }
-    .mt5 { margin-top: 8cm; }
-}
-.cards1 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8cm), 1fr));
-}
-.bdb2 { border-bottom: 1px solid; padding-bottom: 0.2em; }
-</style>
+<link rel="stylesheet" href="style.css">
+<script src="globals.js"></script>
+<script> colorScheme.init(); </script>
 </head>
 <body class="bg fs2">
 <header class="column flexac flexw gap3 spc pt2 header">
@@ -247,16 +58,7 @@ High contrast dark
 </label>
 </li>
 </ul>
-<script>
-  let q = "input[type=radio][name=theme]"
-  const themeRadios = document.querySelectorAll(q);
-  const sch = document.querySelector("html").getAttribute("data-sch");
-  for (let r of themeRadios) {
-      const v = r.getAttribute("value")
-      if (v == sch) r.checked = true;
-      r.onchange = function(_) {setColorScheme(v)}
-  }
-</script>
+<script> colorScheme.initInputs("input[type=radio][name=theme]") </script>
 </fieldset>
 <a class="p20" href="index-el.html">Greek</a>
 </header>
@@ -267,11 +69,11 @@ High contrast dark
 I'm
 <strong>Theodore D.</strong>
 </h2>
-<p class="fs4 m20">
+<p class="fs3 m20">
 Undergraduate programmer with a focus on
 Linux and face to face interactions.
 </p>
-<p class="m20">
+<p class="fs1 m20">
 I'm looking for a 6 month part time internship,
 or maybe a 3 month full time one,
 so I can get my degree.
@@ -346,11 +148,9 @@ LinkedIn
 </li>
 
 </ul>
-<h2 class="mt3 fs4 fwn"
->About me</h2>
-<div class="cards1 gap3">
+<div class="cards1 gap3 mt2">
 <section>
-<h3 class="fs3 fwn">Web development</h3>
+<h2 class="fs3 fwn">Web development</h2>
 <p>
 In July 2024 I interned full time
 <a href="https://helvia.ai/">
@@ -372,7 +172,7 @@ and I played around with Jest and Typescript.
 </p>
 </section>
 <section>
-<h3 class="fs3 fwn">Linux</h3>
+<h2 class="fs3 fwn">Linux</h2>
 <p>
 I tried WSL in 2020, I believe,
 then I went to Linux Mint and then,
@@ -396,7 +196,7 @@ but there's been progress.
 </p>
 </section>
 <section>
-<h3 class="fs3 fwn">Social experiences</h3>
+<h2 class="fs3 fwn">Social experiences</h2>
 <p>
 I was a stereotypical programmer up to about 2021,
 today I do have a few friends.
@@ -415,17 +215,17 @@ with 3 firends where we were face to face
 </section>
 </div>
 
-<h3 class="fs4 fwn">
+<h2 class="fs4 fwn">
 <a href="r/cv-2024-10-10.pdf" style="font-weight: bold"
 >CV as PDF</a>
-</h3>
+</h2>
 <p>
 The CV complements this site.
 It emphasizes the parts that are more measurable.
 </p>
 
 
-<h2 class="fs5 fwn mt4">Most educational projects</h2>
+<h2 class="fs5 fwn mt4">Some projects</h2>
 <p>
 The project that taught me the most, by far, is
 <a href="https://theodoros-d-alenas.site/key-mouth/"

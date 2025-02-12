@@ -43,7 +43,6 @@ so I can get my degree.''',
 ή στην ανάγκη ολικής απασχόλησης τριών μηνών.''')
     t.t('alt="face of man, green eyes, long hair"',
         'alt="Πρόσωπο άντρα, πράσινα μάτια, μακρύ μαλλί"')
-    t.t('About me', 'Γενικά')
     t.t('In July 2024 I interned full time',
         'Έκανα τρίμηνη πρακτική πλήρους απασχόλησης')
     t.t('at Helvia', 'στη Helvia')
@@ -128,7 +127,7 @@ with 3 firends where we were face to face
     t.t('''The CV complements this site.
 It emphasizes the parts that are more measurable.''',
         '''Το CV δίνει πιο πολλή έμφαση σε μετρήσιμες έννοιες.''')
-    t.t("Most educational projects",
+    t.t("Some projects",
         "Πρότζεκτ με μεγαλύτερη επηροή")
     t.t("The project that taught me the most, by far, is",
         "Το πρότζεκτ που με επηρέασε περισσότερο με διαφορά είναι")

@@ -68,7 +68,7 @@ pre b { font-family: source-code-pro-semibold,monospace; }
 .ls1 > li > a { display: flex; align-items: center; gap: 0.4em; padding: 1em 0; }
 .ls2 { padding: 0; margin: 0.5em 0; list-style: none; }
 .ls2 > li > label { display: inline-block; padding: 0.2em 0; }
-.column { margin: 0 auto; max-width: 25cm; padding: 0 1rem; }
+.column { margin: 0 auto; max-width: 30cm; padding: 0 1rem; }
 .header { position: relative; }
 
 fieldset.modal {
@@ -150,7 +150,7 @@ fieldset.modal:focus-within > .modal-box {
 .gap4 { column-gap: 2cm; }
 @media (min-width: 20cm) {
     .wide-flex { display: flex; }
-    .wide-fix-size { width: min(8cm, 40vw); }
+    .wide-fix-size { width: min(10cm, 40vw); }
     .fs5 { font-size: 40pt; line-height: 1em; }
     .mt1 { margin-top: 2cm; }
     .mt2 { margin-top: 3cm; }
